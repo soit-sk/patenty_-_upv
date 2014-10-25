@@ -36,9 +36,14 @@ def toStatus(s):
 def fetchHtml(url):
     #urldata = urllib2.urlopen(url)
     #html = urldata.read()
-    html = scraperwiki.scrape(url)
-    root = lxml.html.fromstring(html)
-    
+
+    try:
+        html = scraperwiki.scrape(url)
+        root = lxml.html.fromstring(html)
+    except:
+        print "Could not get reply from server."
+        root = lxml.html.fromstring('<html />')
+
     return root
 
 def getMaxId():
