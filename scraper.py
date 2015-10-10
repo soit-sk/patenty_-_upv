@@ -81,6 +81,7 @@ print "Start or continue from id: ", min_id
 
 max_id = getMaxId()
 #max_id = 10
+print "max id is: %d\n" % max_id
 
 for id in xrange(min_id, max_id+1):
     try:
