@@ -2,3 +2,5 @@ Scrapes patent data from Slovak patent registry:
 "Industrial Property Office":http://registre.indprop.gov.sk/registre/searchForm.do?register=p
 
 original authors: abyssal, shady
+
+original scraper: https://classic.scraperwiki.com/scrapers/patenty_-_upv/
