@@ -84,6 +84,7 @@ max_id = getMaxId()
 print "max id is: %d\n" % max_id
 
 for id in xrange(min_id, max_id+1):
+    scraperwiki.sqlite.save_var("min_id", id)
     try:
         root = fetchHtml(detailUrl % id)
     except:
@@ -110,6 +111,5 @@ for id in xrange(min_id, max_id+1):
     
     if len(dbData) > 1: #skip page in case no data for id is returned
         scraperwiki.sqlite.save(unique_keys=['id'], data = dbData)
-    scraperwiki.sqlite.save_var("min_id", id+1)
 
 scraperwiki.sqlite.save_var("min_id", 1)
