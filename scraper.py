@@ -37,12 +37,8 @@ def fetchHtml(url):
     #urldata = urllib2.urlopen(url)
     #html = urldata.read()
 
-    try:
-        html = scraperwiki.scrape(url)
-        root = lxml.html.fromstring(html)
-    except:
-        print "Could not get reply from server."
-        root = lxml.html.fromstring('<html />')
+    html = scraperwiki.scrape(url)
+    root = lxml.html.fromstring(html)
 
     return root
 
@@ -88,12 +84,12 @@ for id in xrange(min_id, max_id+1):
     try:
         root = fetchHtml(detailUrl % id)
     except:
-        #print "Failed to fetch id %d" % id
+        print "Failed to fetch id %d" % id
         continue
     rows = root.cssselect("table[class='tdetail'] tr")
     
     if len(rows) < 1:
-        #print "No data for id %d" % id
+        print "No data for id %d" % id
         continue
     
     dbData = {'id': id}
